@@ -9,14 +9,18 @@ public class TestSimulator {
 	public static void main(String args[]) {
 		Simulator sim = new Simulator();
 		
-		sim.setNumCars(10) ;
-		sim.setClientFrequency(Duration.of(10, ChronoUnit.MINUTES)) ;
+		//imposto parametri di simulazione
+		sim.setNumCars(13) ; //numero auto totale
+		sim.setClientFrequency(Duration.of(10, ChronoUnit.MINUTES)) ; //frequenza con cui i clienti arrivano
 		
+		//esecuzione simulatore --> simula la giornata di lavoro del noleggio
 		sim.run() ;
 		
-		int totClients = sim.getTotClients() ;
-		int dissatisfied = sim.getDissatisfied() ;
+		//chiedo al simulatore quanti clienti sono arrivati e quanti non sono soddisfatti (richiesta)
+		int totClients = sim.getClienti() ;
+		int dissatisfied = sim.getInsoddisfatti() ;
 		
+		//li stampo
 		System.out.format("Arrived %d clients, %d were dissatisfied\n", 
 				totClients, dissatisfied);
 	}
